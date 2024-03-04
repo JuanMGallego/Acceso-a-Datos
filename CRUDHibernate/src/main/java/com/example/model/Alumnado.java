@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.sql.Date;
 
 @Entity
 public class Alumnado {
@@ -16,13 +17,14 @@ public class Alumnado {
 
     private String apellidos;
 
-    private String fechaNacimiento;
+    private Date fechaNacimiento;
 
     public  Alumnado(){
 
     }
 
-    public Alumnado(String nombre, String apellidos, String  fechaNacimiento) {
+    public Alumnado(Integer idAlumnado, String nombre, String apellidos, Date fechaNacimiento) {
+        this.idAlumnado = idAlumnado;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.fechaNacimiento = fechaNacimiento;
@@ -52,11 +54,21 @@ public class Alumnado {
         this.apellidos = apellidos;
     }
 
-    public String getFechaNacimiento() {
+    public Date getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(String fechaNacimiento) {
+    public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
+    }
+
+    @Override
+    public String toString() {
+        return "Alumnado{" +
+                "idAlumnado=" + idAlumnado +
+                ", nombre='" + nombre + '\'' +
+                ", apellidos='" + apellidos + '\'' +
+                ", fechaNacimiento=" + fechaNacimiento +
+                '}';
     }
 }
